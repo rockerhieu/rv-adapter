@@ -1,4 +1,4 @@
-package com.rockerhieu.rvadapter.library;
+package com.rockerhieu.rvadapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;

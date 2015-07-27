@@ -1,4 +1,4 @@
-![rv-adapter on Travis CI](https://travis-ci.org/rockerhieu/rv-adapter.png?branch=master) ![rvadapter on Maven Central](https://maven-badges.herokuapp.com/maven-central/com.rockerhieu.rvadapter/library/badge.svg)
+![rv-adapter on Travis CI](https://travis-ci.org/rockerhieu/rv-adapter.png?branch=master) ![rvadapter on Maven Central](https://maven-badges.herokuapp.com/maven-central/com.rockerhieu/rv-adapter/badge.svg)
 
 ## rv-adapter
 
@@ -9,7 +9,7 @@ Inspired by [cwac-adapter](https://github.com/commonsguy/cwac-adapter/), `Recycl
 You can access the library on Maven:
 
 ```groovy
-compile 'com.rockerhieu.rvadapter:library:<latest-version>'
+compile 'com.rockerhieu:rv-adapter:<latest-version>'
 ```
 
 ## Contributing
