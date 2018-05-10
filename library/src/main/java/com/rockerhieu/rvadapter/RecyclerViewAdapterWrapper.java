@@ -1,19 +1,20 @@
 package com.rockerhieu.rvadapter;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import static android.support.v7.widget.RecyclerView.*;
+import static android.support.v7.widget.RecyclerView.Adapter;
+import static android.support.v7.widget.RecyclerView.AdapterDataObserver;
+import static android.support.v7.widget.RecyclerView.ViewHolder;
 
 /**
  * @author rockerhieu on 7/6/15.
  */
 public class RecyclerViewAdapterWrapper extends Adapter {
+    private final Adapter<ViewHolder> wrapped;
 
-    private final Adapter wrapped;
-
-    public RecyclerViewAdapterWrapper(Adapter wrapped) {
-        super();
+    public RecyclerViewAdapterWrapper(Adapter<ViewHolder> wrapped) {
         this.wrapped = wrapped;
         this.wrapped.registerAdapterDataObserver(new AdapterDataObserver() {
             public void onChanged() {
@@ -38,13 +39,14 @@ public class RecyclerViewAdapterWrapper extends Adapter {
         });
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return wrapped.onCreateViewHolder(parent, viewType);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         wrapped.onBindViewHolder(holder, position);
     }
 
@@ -69,46 +71,46 @@ public class RecyclerViewAdapterWrapper extends Adapter {
     }
 
     @Override
-    public void onViewRecycled(ViewHolder holder) {
+    public void onViewRecycled(@NonNull ViewHolder holder) {
         wrapped.onViewRecycled(holder);
     }
 
     @Override
-    public boolean onFailedToRecycleView(ViewHolder holder) {
+    public boolean onFailedToRecycleView(@NonNull ViewHolder holder) {
         return wrapped.onFailedToRecycleView(holder);
     }
 
     @Override
-    public void onViewAttachedToWindow(ViewHolder holder) {
+    public void onViewAttachedToWindow(@NonNull ViewHolder holder) {
         wrapped.onViewAttachedToWindow(holder);
     }
 
     @Override
-    public void onViewDetachedFromWindow(ViewHolder holder) {
+    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
         wrapped.onViewDetachedFromWindow(holder);
     }
 
     @Override
-    public void registerAdapterDataObserver(AdapterDataObserver observer) {
+    public void registerAdapterDataObserver(@NonNull AdapterDataObserver observer) {
         wrapped.registerAdapterDataObserver(observer);
     }
 
     @Override
-    public void unregisterAdapterDataObserver(AdapterDataObserver observer) {
+    public void unregisterAdapterDataObserver(@NonNull AdapterDataObserver observer) {
         wrapped.unregisterAdapterDataObserver(observer);
     }
 
     @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         wrapped.onAttachedToRecyclerView(recyclerView);
     }
 
     @Override
-    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
+    public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
         wrapped.onDetachedFromRecyclerView(recyclerView);
     }
 
-    public RecyclerView.Adapter getWrappedAdapter() {
+    public Adapter<ViewHolder> getWrappedAdapter() {
         return wrapped;
     }
 }
